@@ -1,0 +1,5 @@
+numpy==1.24.3
+yahooquery==2.3.7
+scipy==1.11.1
+matplotlib==3.7.1
+seaborn==0.13.2

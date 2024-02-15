@@ -2,12 +2,17 @@
 
 ## Create python virtual environment
 ```
-$ python -m venv venv-stats
+$ python -m venv ~/venv-stats
 ```
 
 ## Source the virtual environment 
 ```
 $ source ~/venv-stats/bin/activate
+```
+
+### Instal dependencies
+```
+(venv-stats) $ pip install -r requirements.txt
 ```
 
 ### Call forecasting example

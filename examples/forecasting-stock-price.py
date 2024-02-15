@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
 
 import numpy as np
-import pandas as pd
-from pandas_datareader import data as wb
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 
-import yfinance as yfin
-
-yfin.pdr_override()
+from yahooquery import Ticker
 
 start_date = "2015-01-01"
-pg_df = wb.get_data_yahoo("PG", start=start_date)
+ticker = Ticker("PG")
+pg_df = ticker.history(start=start_date)
 
-data = pg_df["Adj Close"]
+pg_df.index = pg_df.index.droplevel(0)
+data = pg_df["adjclose"]
+
 log_returns = np.log(1 + data.pct_change())
 
 u = log_returns.mean()
