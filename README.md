@@ -1,15 +1,25 @@
-# Pre-steps
-## Add to host machine PATH ws-infra/scripts
-hung@dell-G15-5511:~/work/ws-finance$ export PATH=$PATH:$WS-infra-scripts-path' >> ~/.bashrc
+# How to run it
 
-## Create x-auth cookie to local file
-hung@dell-G15-5511:~/work/ws-finance$ xauth-create-params.sh
+## Create python virtual environment
+```
+$ python -m venv venv-stats
+```
 
-## Run bash shell in docker
-hung@dell-G15-5511:~/work/ws-finance$ shell-dev-python-stats.sh
+## Source the virtual environment 
+```
+$ source ~/venv-stats/bin/activate
+```
 
-## Add x-auth cookie in docker
-root@dell-G15-5511:/workspace# xauth-import-params.sh x-auth-params.txt
+### Call forecasting example
+```
+(venv-stats) $ python examples/forecasting-stock-price.py 
+```
 
-## Test UI app
-root@dell-G15-5511:/workspace# python test-env/simple_plot.py
+![Forrcasting example output](doc/forecasting.png "Forecasting example")
+
+### Call correlation example
+```
+(venv-stats) $ python examples/assets-correlation.py
+```
+
+![Correlation example output](doc/correlation.png "Correlation example")
